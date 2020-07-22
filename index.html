@@ -173,24 +173,60 @@
 										</p>
 									</header>
 
-									<!-- Projects continued -->
-									<!--
+									<header>
+										<h4>Cryptography Projects</h4>
+										<p>
+											<ul>
+												<li>Implemented DES</li>
+												<li>Implemented AES</li>
+											
+											</ul>
+										</p>
+									</header>
+
+									
+									<header>
+										<h4>Huffman encoding and decoding using C</h4>
+										<p>
+											Encoding:<br>
+											Firstly, I calculated the frequency of each ascii character. 
+											The reason for this would be to have shorter codes for characters that occur more. 
+											I calculated the codes for each character by building a code book after constructing a strictly binary tree as shown in the figure below. 
+											The characters are stored in leaf nodes (leaf node characters that have a higher frequency have a shorter height giving us shorter codes). 
+											With this I was able to compress (in a lossless manner) "go go gophers" into just 37 bits. 
+											I tested this implementation with files much longer than this. 
+											For the compressed file, total number of characters in the compressed file, total number of unique characters and total number of characters in the original file were written. 
+											Then the topology of the tree was written (used '0' and '1' to distinguish between leaf and non-leaf nodes), this would give us "001g1o001s1 001e1h01p1r" for the purposes of the example. 
+											Finally printed the compressed data from the original file (by using the calculated codes for each character) at the end of the compressed file.
+											
+											<br>
+											<span class="image fit"><img src="images/gogogophers_encoding.png"></span>
+
+											Decoding:<br>
+											The tree topology in the compressed file was used to construct the binary tree. 
+											A codebook was contructed using this tree and this allowed me to get back the original characters from the compressed data.
+										</p>
+									</header>
+
 									<header>
 										<h4>Interpreter and Compiler</h4>
-										<p>Under construction, please come back soon!</p>
+										<p>
+											Developed a computer program interpreter using C++ and a compiler using Java.
+											
+											Details under construction, please come back soon!
+										</p>
 									</header>
 
 									<header>
-										<h4>Image morphing accompanied with a PYQT gui</h4>
-										<p>Under construction, please come back soon!</p>
+										<h4>Image morphing accompanied with a PYQT Graphical User Interface</h4>
+										<p> 
+											Details under construction, please come back soon!
+										</p>
 									</header>
 
-									<header>
-										<h4>Huffman compression and decompression</h4>
-										<p>Under construction, please come back soon!</p>
-									</header>
 									
-									-->
+									
+									
 									
 								</div>
 							</section>
