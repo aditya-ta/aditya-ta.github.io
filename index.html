@@ -187,6 +187,49 @@
 										</p>
 									</header>
 
+									<header>
+										<h4>Compiler and Interpreter for a Simple Programming Language</h4>
+										<p>
+											<strong>Compiler (Java):</strong> The compiler will read each statement from the source program file and determines
+											the operation that statement performs and its operands. Each statement has the structure operation plus zero or more operands. 
+											The language has a declaration statement, each declaration creates an entry in a symbol table. 
+											After the variables have been declared the executable statements can be written, these include ret, print, jmp, jmpc, cmpe, cmplt, 
+											cmpgt, call, push, popm, popv, peek, poke, swp, add, sub, mul and div. 
+											The compiler processes all these statements and produces a bytecode file for the interpreter to execute.
+
+
+											<br><br><strong>Interpreter (C++):</strong>
+											
+											I developed a bytecode interpreter that read and executed the bytecode file produced by the above compiler. 
+											The interpreter used 6 main data structures for its operations, namely:<br>
+											<ul>
+												<li>Program memory (mem): An array of bytes that holds the program that is being read into the interpreter.</li>
+
+												<li>The runtime stack (rstack): All operations are executed against values in the runtime stack and all variables exist on the runtime stack. 
+												This stack was made using a vector in order to accommodate for the different lengths of the data types char, short, int and float.
+												This object had two fields, a field to hold the type of the data item and another to hold the data item itself.</li>
+												
+												<li>The runtime stack pointer (sp): Points to the top of the runtime stack.</li>
+												
+												<li>A stack of frame pointers (fpstack): This is a stack of indices to the start of the frame for a	procedure call. 
+													It points to the first element in the functions stack frame.</li>
+													
+												<li>A frame pointer stack pointer (fpsp): Points to the top of the frame stack.</li>
+
+												<li>A program counter (pc): Contains the address of the next instruction to be executed.</li>
+																	
+											</ul>
+
+											This interpreter had several bytecodes defined. These included: 
+											<ul>
+												<li>Comparison bytecodes: cmpe, cmplt, cmpgt</li>
+												<li>Control flow bytecodes: jmp, jmpc, call and return</li> 
+												<li>Stack manipulation codes: push value, push value using variable name, pop, peek, poke and swap</li>
+												<li>Arithmetic byte codes: add, sub, mul, div</li>	
+												<li>Special operation codes: print and halt</li>	
+											</ul>							
+										</p>
+									</header>
 
 									<header>
 										<h4><a href="http://www.tadaproject.org/"><u>TADA (Technology Assited Dietary Assesment)</u></a></h4>
@@ -223,22 +266,17 @@
 										</p>
 									</header>
 
-									<header>
-										<h4>Interpreter and Compiler</h4>
-										<p>
-											Developed a computer program interpreter using C++ and a compiler using Java.
-											
-											Details under construction, please come back soon!
-										</p>
-									</header>
-
+									
 									<header>
 										<h4>Image morphing accompanied with a PyQt Graphical User Interface</h4>
 										<p> 
+											Applied an affine tranformation on each delaunay triangle in order to achieve a smooth morphing and blending effect betweent the source and the target image. 
+											A GUI was designed according to a required spec using PyQt for ease of use. An example of one such use can be seen below.
+											 
 											<span class="image"><img src="images/imgMorphGUI.JPG" alt="" /></span>
 											
 											<br><br>
-											Details under construction, please come back soon!
+											
 										</p>
 									</header>
 
