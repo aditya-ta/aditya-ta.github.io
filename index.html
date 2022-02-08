@@ -189,6 +189,111 @@
 										</p>
 									</header>
 
+									<header>
+										<h4>Huffman Encoding and Decoding Algorithm using C</h4>
+										<p>
+											<strong>Encoding:</strong><br>
+											Firstly, I calculated the frequency of each ascii character. 
+											The reason for this would be to have shorter codes for characters that occur more. 
+											I calculated the codes for each character by building a code book after constructing a strictly binary tree as shown in the figure below. 
+											The characters are stored in leaf nodes (leaf node characters that have a higher frequency have a shorter height giving us shorter codes). 
+											With this I was able to compress (in a lossless manner) "go go gophers" into just 37 bits. 
+											I tested this implementation with files much longer than this. 
+											For the compressed file, total number of characters in the compressed file, total number of unique characters and total number of characters in the original file were written. 
+											Then the topology of the tree was written (used '0' and '1' to distinguish between leaf and non-leaf nodes), this would give us "001g1o001s1 001e1h01p1r" for the purposes of the example. 
+											Finally printed the compressed data from the original file (by using the calculated codes for each character) at the end of the compressed file.
+											
+											<br>
+											<span class="image fit"><img src="images/gogogophers_encoding.png"></span>
+
+											<strong>Decoding:</strong><br>
+											The tree topology in the compressed file was used to construct the binary tree. 
+											A codebook was contructed using this tree and this allowed me to get back the original characters from the compressed data.
+										</p>
+									</header>
+
+									<header>
+										<h4>Compiler and Interpreter for a Simple Programming Language</h4>
+										<p>
+											<strong>Compiler (Java):</strong> The compiler will read each statement from the source program file and determines
+											the operation that statement performs and its operands. Each statement has the structure operation plus zero or more operands. 
+											The language has a declaration statement, each declaration creates an entry in a symbol table. 
+											After the variables have been declared the executable statements can be written, these include ret, print, jmp, jmpc, cmpe, cmplt, 
+											cmpgt, call, push, popm, popv, peek, poke, swp, add, sub, mul and div. 
+											The compiler processes all these statements and produces a bytecode file for the interpreter to execute.
+
+
+											<br><br><strong>Interpreter (C++):</strong>
+											
+											I developed a bytecode interpreter that read and executed the bytecode file produced by the above compiler. 
+											The interpreter used 6 main data structures for its operations, namely:<br>
+											<ul>
+												<li>Program memory (mem): An array of bytes that holds the program that is being read into the interpreter.</li>
+
+												<li>The runtime stack (rstack): All operations are executed against values in the runtime stack and all variables exist on the runtime stack. 
+												This stack was made using a vector in order to accommodate for the different lengths of the data types char, short, int and float.
+												This object had two fields, a field to hold the type of the data item and another to hold the data item itself.</li>
+												
+												<li>The runtime stack pointer (sp): Points to the top of the runtime stack.</li>
+												
+												<li>A stack of frame pointers (fpstack): This is a stack of indices to the start of the frame for a	procedure call. 
+													It points to the first element in the functions stack frame.</li>
+													
+												<li>A frame pointer stack pointer (fpsp): Points to the top of the frame stack.</li>
+
+												<li>A program counter (pc): Contains the address of the next instruction to be executed.</li>
+																	
+											</ul>
+
+											This interpreter had several bytecodes defined. These included: 
+											<ul>
+												<li>Comparison bytecodes: cmpe, cmplt, cmpgt</li>
+												<li>Control flow bytecodes: jmp, jmpc, call and return</li> 
+												<li>Stack manipulation codes: push value, push value using variable name, pop, peek, poke and swap</li>
+												<li>Arithmetic byte codes: add, sub, mul, div</li>	
+												<li>Special operation codes: print and halt</li>	
+											</ul>							
+										</p>
+									</header>
+
+									<header>
+										<h4>Projects Related to Cryptography</h4>
+										<p>
+											<ul>
+												<li><strong>Data Encryption Standard (Encryption and Decryption):</strong> Implemented for text and image files</li>
+												<li><strong>Advanced Encryption Standard (Encryption and Decryption):</strong> Implemented for text and image files</li>
+												<li><strong>X9.31 Psuedo Random Number Generator using AES</strong></li>
+												<li><strong>Secure Hashing Algorithm 512</strong></li>
+												<li><strong>RSA Algorithm (Encryption and Decryption)</strong></li>
+																																	
+											</ul>
+										</p>
+									</header>
+
+									<header>
+										<h4>Deep residual network on MNIST and CIFAR10 datasets</h4>
+										<p>
+											My detailed term paper on this project embedded below as a pdf document:
+											<br>
+											<iframe src="documents\ECE_570_Paper.pdf" width="100%" height="650px"></iframe>
+										</p>
+									</header>
+
+									
+									<header>
+										<h4>Image morphing accompanied with a PyQt Graphical User Interface</h4>
+										<p> 
+											Applied an affine transformation on each delaunay triangle to achieve a smooth morphing and blending effect between the source and target image. 
+											A GUI was designed according to a required spec using PyQt for ease of use. 
+											An example of one such use can be seen below. 
+											 
+											<span class="image"><img src="images/imgMorphGUI.JPG" alt="" /></span>
+																														
+										</p>
+									</header>
+
+
+
 									<!-- Other relavent projects-->
 									<!--
 									<header>
