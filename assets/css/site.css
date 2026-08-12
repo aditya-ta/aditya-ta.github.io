@@ -1,0 +1,605 @@
+/* ============================================================================
+   Aditya Thagarthi Arun — personal site
+   Near-black ground, one indigo-blue accent, a single meta+content grid
+   repeated by every section. No framework, no build step.
+   ========================================================================= */
+
+:root {
+  --bg:              #08090a;
+  --bg-raised:       #0e0f11;
+  --bg-hover:        #131417;
+
+  --text:            #f7f8f8;
+  --text-secondary:  #9ca1a9;
+  --text-muted:      #8a8f98;
+
+  --accent:          #6c8cff;
+  --accent-bright:   #8ba4ff;
+
+  --border:          rgba(255, 255, 255, 0.08);
+  --border-strong:   rgba(255, 255, 255, 0.14);
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Roboto,
+          Arial, sans-serif;
+
+  --container: 920px;
+  --meta-col: 180px;
+  --gutter: 40px;
+
+  --radius: 8px;
+  --radius-lg: 12px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- reset ---------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
+}
+
+h1, h2, h3, p, ul, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+svg { display: block; }
+
+/* --- browser surfaces ----------------------------------------------------- */
+
+::selection {
+  background: rgba(108, 140, 255, 0.28);
+  color: #ffffff;
+}
+
+body { caret-color: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+html {
+  scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border: 3px solid var(--bg);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.24); }
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.875rem;
+  font-weight: 550;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: top 0.2s var(--ease);
+}
+.skip:focus { top: 16px; }
+
+/* --- shared shell --------------------------------------------------------- */
+
+.section__inner,
+.hero__inner,
+.topbar__inner,
+.footer__inner {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 32px;
+}
+
+/* --- top bar -------------------------------------------------------------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(8, 9, 10, 0.72);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.topbar.is-stuck { border-bottom-color: var(--border); }
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 60px;
+}
+
+.topbar__name {
+  font-size: 0.875rem;
+  font-weight: 550;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.014em;
+  white-space: nowrap;
+}
+
+.topbar__nav {
+  display: flex;
+  gap: 28px;
+  margin-inline-start: auto;
+}
+.topbar__nav a {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.18s var(--ease);
+}
+.topbar__nav a:hover { color: var(--text); }
+.topbar__nav a.is-current { color: var(--text); }
+
+.topbar__cta {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 7px;
+  white-space: nowrap;
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+.topbar__cta:hover { background: var(--bg-hover); border-color: rgba(255, 255, 255, 0.24); }
+
+/* --- hero ----------------------------------------------------------------- */
+
+.hero {
+  padding-block: 104px 88px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero__portrait {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow);
+  margin-bottom: 28px;
+}
+
+.hero__name {
+  font-size: clamp(2.125rem, 5.5vw, 3.25rem);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+}
+
+.hero__role {
+  margin-top: 12px;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: -0.014em;
+}
+
+.hero__lede {
+  margin-top: 24px;
+  max-width: 60ch;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.hero__meta { margin-top: 24px; }
+
+.place {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.place .icon { color: var(--text-muted); }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+/* --- buttons -------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding-inline: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: inherit;
+  letter-spacing: -0.011em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease),
+              transform 0.18s var(--ease);
+}
+.btn:hover {
+  background: var(--bg-hover);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+  box-shadow: var(--shadow);
+}
+.btn--primary:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon--sm { width: 13px; height: 13px; }
+
+/* --- sections ------------------------------------------------------------- */
+
+.section { padding-block: 88px; }
+.section + .section { border-top: 1px solid var(--border); }
+
+.section__title {
+  font-size: 0.75rem;
+  font-weight: 550;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* --- the repeated meta + content grid ------------------------------------- */
+
+.rows { display: flex; flex-direction: column; }
+
+.row {
+  display: grid;
+  grid-template-columns: var(--meta-col) minmax(0, 1fr);
+  gap: 0 var(--gutter);
+  padding-block: 32px;
+  border-top: 1px solid var(--border);
+}
+
+/* The current role is the strongest evidence on the page and is weighted for
+   it: more air, a raised surface, and a heavier title than the rows below. */
+/* The card's interior padding is cancelled by an equal negative inline margin,
+   so the raised surface outdents past the text measure while the meta column
+   and body still land on the same grid as every row below it. */
+.row--lead {
+  border-top: none;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-inline: -28px;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow);
+}
+.row--lead .row__title { font-size: 1.3125rem; letter-spacing: -0.022em; }
+.row--lead .row__text { margin-top: 16px; }
+
+.years--now { color: var(--text); font-weight: 500; }
+
+.row__meta { padding-top: 2px; }
+
+.years, .label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.label { letter-spacing: -0.006em; white-space: normal; }
+
+.row__title {
+  font-size: 1.0625rem;
+  font-weight: 550;
+  letter-spacing: -0.018em;
+  line-height: 1.4;
+}
+
+.row__sub {
+  margin-top: 3px;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.row__text {
+  margin-top: 14px;
+  max-width: 68ch;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.row__links { margin-top: 16px; }
+
+/* The block diagram is a white technical drawing. It is mounted on its own
+   sheet with a margin so it reads as a document on the page rather than a
+   white rectangle bleeding into the dark ground. */
+.row__figure {
+  margin-top: 24px;
+  max-width: 520px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-raised);
+  box-shadow: var(--shadow);
+}
+.row__figure a { display: block; }
+/* No radius needed on the sheet itself: the figure clips it with its own
+   overflow, so the white corners follow the mount exactly. */
+.row__figure img {
+  width: 100%;
+  padding: 14px;
+  background: #ffffff;
+}
+.row__figure figcaption {
+  padding: 12px 14px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Coursework under a degree. Set at meta scale so it supports the degree
+   without competing with the shipped work above it. */
+.courses {
+  margin-top: 12px;
+  max-width: 68ch;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.courses__label { color: var(--text-secondary); font-weight: 500; }
+
+/* --- tags ----------------------------------------------------------------- */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+.tags li {
+  font-size: 0.8125rem;
+  line-height: 1;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-raised);
+}
+.tags--lg { margin-top: 0; }
+
+/* --- links ---------------------------------------------------------------- */
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.18s var(--ease);
+}
+.link:hover { color: var(--accent-bright); text-decoration: underline; text-underline-offset: 3px; }
+.link .icon { transition: transform 0.18s var(--ease); }
+.link:hover .icon { transform: translate(1.5px, -1.5px); }
+
+.link--inline {
+  display: inline;
+  font-size: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(108, 140, 255, 0.4);
+  text-underline-offset: 3px;
+}
+.link--inline:hover { text-decoration-color: currentColor; }
+
+/* --- also built ----------------------------------------------------------- */
+
+.subhead {
+  margin-top: 64px;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  font-weight: 550;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
+}
+
+.compact { display: flex; flex-direction: column; }
+.compact li {
+  padding-block: 18px;
+  border-top: 1px solid var(--border);
+  max-width: 76ch;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.compact strong {
+  color: var(--text);
+  font-weight: 550;
+  letter-spacing: -0.014em;
+}
+
+/* --- footer ----------------------------------------------------------------
+   The footer carries contact. There is no separate contact section: email and
+   LinkedIn already sit above the fold and in the sticky bar, so a full section
+   restating them was redundant. */
+
+.footer { border-top: 1px solid var(--border); }
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding-block: 40px 48px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+.footer__who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.footer__name { color: var(--text); font-weight: 500; }
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.footer__links .link { font-size: 0.8125rem; }
+
+/* --- motion: one authored moment ------------------------------------------
+   The page has exactly one entrance: the hero settling on load. Rows below
+   render immediately — a recruiter scrolling fast should never wait on an
+   animation to read a date. */
+
+@keyframes settle {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero__portrait,
+.hero__name,
+.hero__role,
+.hero__lede,
+.hero__meta,
+.hero__actions {
+  animation: settle 0.65s var(--ease) both;
+}
+.hero__name    { animation-delay: 0.05s; }
+.hero__role    { animation-delay: 0.10s; }
+.hero__lede    { animation-delay: 0.15s; }
+.hero__meta    { animation-delay: 0.20s; }
+.hero__actions { animation-delay: 0.25s; }
+
+/* --- responsive ----------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .row__meta { padding-top: 0; order: -1; }
+  .tags--lg { margin-top: 4px; }
+}
+
+@media (max-width: 720px) {
+  .section__inner, .hero__inner, .topbar__inner, .footer__inner {
+    padding-inline: 20px;
+  }
+  /* The sticky bar keeps its job on a phone: wayfinding on a very long page.
+     The nav scrolls horizontally rather than disappearing, and the CTA goes
+     away because Contact is now in the nav and Email sits just below. */
+  /* On a phone the sticky bar carries wayfinding AND the primary action. The
+     name is dropped (the hero states it immediately, and this is a one-person
+     site) and the two shortest-payoff nav items step aside so the remaining
+     three plus the Email action fit without a hidden scroll. */
+  .topbar__inner { gap: 14px; height: 54px; }
+  .topbar__name { display: none; }
+  .nav-opt { display: none; }
+  .topbar__nav {
+    gap: 18px;
+    margin-inline-start: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .topbar__nav::-webkit-scrollbar { display: none; }
+  .topbar__nav a { white-space: nowrap; font-size: 0.8125rem; }
+  .topbar__cta { margin-inline-start: auto; padding: 6px 12px; font-size: 0.8125rem; }
+
+  .hero { padding-block: 56px 56px; }
+  .hero__portrait { width: 72px; height: 72px; margin-bottom: 24px; }
+  .hero__lede { margin-top: 20px; }
+  .hero__actions { margin-top: 28px; }
+
+  .section { padding-block: 56px; }
+  .row { padding-block: 26px; }
+  .row--lead { padding: 22px 14px 24px; margin-inline: -14px; }
+  .subhead { margin-top: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- print ---------------------------------------------------------------- */
+
+@media print {
+  :root { --text: #000000; --text-secondary: #333333; --text-muted: #555555; --border: #cccccc; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .topbar, .skip, .hero__actions { display: none; }
+  .hero { padding-block: 0 24px; }
+  .section { padding-block: 24px; break-inside: avoid; }
+  .row { break-inside: avoid; }
+  .row--lead {
+    background: none;
+    box-shadow: none;
+    border-color: #cccccc;
+    margin-inline: 0;
+    padding: 14px;
+  }
+  .tags li { border-color: #cccccc; background: none; }
+  .row__figure { display: none; }
+  a { color: #000000; }
+}

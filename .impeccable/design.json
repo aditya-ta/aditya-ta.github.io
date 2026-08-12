@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-11T00:00:00Z",
+  "title": "Design System: Aditya Thagarthi Arun — Personal Site",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "canonical": "#08090a",
+        "tonalRamp": ["#08090a", "#0e0f11", "#131417", "#1c1e22", "#2a2d33", "#4a4e57", "#8a8f98", "#f7f8f8"]
+      },
+      "surface-raised": {
+        "role": "neutral",
+        "displayName": "Raised Surface",
+        "canonical": "#0e0f11",
+        "tonalRamp": ["#08090a", "#0e0f11", "#131417", "#1c1e22", "#2a2d33", "#4a4e57", "#9ca1a9", "#f7f8f8"]
+      },
+      "surface-hover": {
+        "role": "neutral",
+        "displayName": "Hover Surface",
+        "canonical": "#131417",
+        "tonalRamp": ["#0e0f11", "#131417", "#1c1e22", "#25282d", "#33373e", "#565b64", "#9ca1a9", "#f7f8f8"]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Primary Text",
+        "canonical": "#f7f8f8",
+        "tonalRamp": ["#131417", "#2a2d33", "#4a4e57", "#6b7079", "#8a8f98", "#9ca1a9", "#d5d8db", "#f7f8f8"]
+      },
+      "text-secondary": {
+        "role": "neutral",
+        "displayName": "Secondary Text",
+        "canonical": "#9ca1a9",
+        "tonalRamp": ["#131417", "#22262b", "#343941", "#4c525b", "#6a7079", "#8a8f98", "#9ca1a9", "#e2e5e8"]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Text",
+        "canonical": "#8a8f98",
+        "tonalRamp": ["#111318", "#1e2127", "#2f333a", "#454a53", "#61666f", "#8a8f98", "#b4b9c0", "#e4e6ea"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Signal Indigo",
+        "canonical": "#6c8cff",
+        "tonalRamp": ["#121b3d", "#1d2b62", "#2b3f8f", "#3c56bd", "#5271e6", "#6c8cff", "#8ba4ff", "#c6d3ff"]
+      },
+      "accent-bright": {
+        "role": "primary",
+        "displayName": "Signal Indigo Bright",
+        "canonical": "#8ba4ff",
+        "tonalRamp": ["#141d40", "#203066", "#2f4595", "#425cc4", "#5876ea", "#7593ff", "#8ba4ff", "#d3dcff"]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(255, 255, 255, 0.08)",
+        "tonalRamp": ["rgba(255,255,255,0.04)", "rgba(255,255,255,0.06)", "rgba(255,255,255,0.08)", "rgba(255,255,255,0.11)", "rgba(255,255,255,0.14)", "rgba(255,255,255,0.18)", "rgba(255,255,255,0.24)", "rgba(255,255,255,0.32)"]
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "rgba(255, 255, 255, 0.14)",
+        "tonalRamp": ["rgba(255,255,255,0.06)", "rgba(255,255,255,0.08)", "rgba(255,255,255,0.11)", "rgba(255,255,255,0.14)", "rgba(255,255,255,0.18)", "rgba(255,255,255,0.24)", "rgba(255,255,255,0.32)", "rgba(255,255,255,0.44)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The name in the hero. One instance per page." },
+      "headline": { "displayName": "Headline", "purpose": "The contact section title; the only other fluid-scaled type." },
+      "title-lead": { "displayName": "Title (Lead)", "purpose": "The current-role row title only." },
+      "title": { "displayName": "Title", "purpose": "Every other row title: employer, project name, school." },
+      "body-lg": { "displayName": "Body Large", "purpose": "Hero lede and role, contact copy. Capped at 52-60ch." },
+      "body": { "displayName": "Body", "purpose": "Row prose, subtitles, buttons, links, compact list. Capped at 68-76ch." },
+      "meta": { "displayName": "Meta", "purpose": "Dates, tags, figcaptions, footer. Always tabular numerals, letter-spacing 0." },
+      "label": { "displayName": "Label", "purpose": "Section titles and subheads. The only uppercase and only positive tracking in the system." }
+    },
+    "shadows": [
+      {
+        "name": "ambient-lift",
+        "value": "0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -8px rgba(0, 0, 0, 0.55)",
+        "purpose": "The only shadow in the system. Tight contact shadow plus wide negative-spread ambient. Used on the portrait, the primary button, the single lead row, and mounted figures."
+      }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The system's single easing curve; every transition and the one entrance animation use it." },
+      { "name": "duration-state", "value": "0.18s", "purpose": "Color, background, border, and transform state transitions on buttons, links, and nav." },
+      { "name": "duration-chrome", "value": "0.25s", "purpose": "The sticky header's border and background transition when it becomes stuck." },
+      { "name": "entrance-settle", "value": "settle 0.65s cubic-bezier(0.16, 1, 0.3, 1) both", "purpose": "The page's only entrance: opacity 0 to 1 with a 10px rise, staggered 0.05s across the six hero elements." }
+    ],
+    "breakpoints": [
+      { "name": "row-collapse", "value": "860px" },
+      { "name": "phone", "value": "720px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single most important action on a surface: Email, in the hero and the contact section. Inverted fill, ambient lift.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"mailto:adityata98@gmail.com\"><svg class=\"ds-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><rect x=\"1.75\" y=\"3.25\" width=\"12.5\" height=\"9.5\" rx=\"1.75\"/><path d=\"M2.5 4.75 8 8.75l5.5-4\"/></svg>Email</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding-inline: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.14); background: transparent; color: #f7f8f8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.011em; text-decoration: none; white-space: nowrap; transition: background 0.18s cubic-bezier(0.16,1,0.3,1), border-color 0.18s cubic-bezier(0.16,1,0.3,1), transform 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary { background: #f7f8f8; border-color: #f7f8f8; color: #08090a; box-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -8px rgba(0,0,0,0.55); } .ds-btn-primary:hover { background: #fff; border-color: #fff; } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid #6c8cff; outline-offset: 3px; border-radius: 3px; } .ds-icon { display: block; width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined companion action (LinkedIn). Transparent at rest, hover surface on hover.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"https://www.linkedin.com/in/adityata/\"><svg class=\"ds-icon-2\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><rect x=\"1.75\" y=\"1.75\" width=\"12.5\" height=\"12.5\" rx=\"2\"/><path d=\"M5 6.75v4.5M5 4.6v.05M8 11.25v-4.5M8 8.4c0-1 .7-1.65 1.6-1.65s1.6.6 1.6 1.8v2.7\"/></svg>LinkedIn</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding-inline: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.14); background: transparent; color: #f7f8f8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.011em; text-decoration: none; white-space: nowrap; transition: background 0.18s cubic-bezier(0.16,1,0.3,1), border-color 0.18s cubic-bezier(0.16,1,0.3,1), transform 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary:hover { background: #131417; border-color: rgba(255,255,255,0.24); } .ds-btn-secondary:active { transform: translateY(1px); } .ds-btn-secondary:focus-visible { outline: 2px solid #6c8cff; outline-offset: 3px; border-radius: 3px; } .ds-icon-2 { display: block; width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Static technology label under a row's prose, or filling the content column in the Skills section. Not interactive.",
+      "html": "<ul class=\"ds-tags\"><li>Windows kernel drivers</li><li>PoFx</li><li>DVFS</li><li>Snapdragon</li><li>C</li></ul>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; } .ds-tags li { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 0.8125rem; line-height: 1; color: #8a8f98; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; background: #0e0f11; }"
+    },
+    {
+      "name": "Row",
+      "kind": "custom",
+      "refersTo": "row",
+      "description": "The structural atom of the page: a 180px meta column beside a fluid content column, separated by a 40px gutter under a hairline rule. Every section is a stack of these.",
+      "html": "<article class=\"ds-row\"><div class=\"ds-row-meta\"><span class=\"ds-years\">Summer 2022</span></div><div><h3 class=\"ds-row-title\">Qualcomm</h3><p class=\"ds-row-sub\">Software Engineering Intern · San Diego, California</p><p class=\"ds-row-text\">Built USB Type-C and Power Delivery dock features for the Snapdragon compute SOC on the PMIC-HLOS team.</p></div></article>",
+      "css": ".ds-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 0 40px; padding-block: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; } .ds-row-meta { padding-top: 2px; } .ds-years { font-size: 0.8125rem; color: #8a8f98; font-variant-numeric: tabular-nums; letter-spacing: 0; white-space: nowrap; } .ds-row-title { margin: 0; font-size: 1.0625rem; font-weight: 550; letter-spacing: -0.018em; line-height: 1.4; color: #f7f8f8; } .ds-row-sub { margin: 3px 0 0; font-size: 0.9375rem; color: #9ca1a9; } .ds-row-text { margin: 14px 0 0; max-width: 68ch; font-size: 0.9375rem; line-height: 1.7; color: #9ca1a9; } @media (max-width: 860px) { .ds-row { grid-template-columns: minmax(0, 1fr); gap: 10px; } .ds-row-meta { padding-top: 0; order: -1; } }",
+      "notes": "Exactly one row per page carries the lead variant."
+    },
+    {
+      "name": "Lead Row",
+      "kind": "card",
+      "refersTo": "row-lead",
+      "description": "The single raised surface on the page, spent on the current role. Interior padding is cancelled by an equal negative inline margin so the meta column stays on the shared grid.",
+      "html": "<article class=\"ds-row-lead\"><div class=\"ds-lead-meta\"><span class=\"ds-lead-years\">2023 — Present</span></div><div><h3 class=\"ds-lead-title\">Qualcomm</h3><p class=\"ds-lead-sub\">Software Engineer · San Diego, California</p><p class=\"ds-lead-text\">Windows kernel-mode driver responsible for power management and performance optimization on next-generation Snapdragon compute platforms.</p></div></article>",
+      "css": ".ds-row-lead { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 0 40px; background: #0e0f11; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px; margin-inline: -28px; margin-bottom: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -8px rgba(0,0,0,0.55); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; } .ds-lead-meta { padding-top: 2px; } .ds-lead-years { font-size: 0.8125rem; color: #f7f8f8; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: 0; white-space: nowrap; } .ds-lead-title { margin: 0; font-size: 1.3125rem; font-weight: 550; letter-spacing: -0.022em; line-height: 1.4; color: #f7f8f8; } .ds-lead-sub { margin: 3px 0 0; font-size: 0.9375rem; color: #9ca1a9; } .ds-lead-text { margin: 16px 0 0; max-width: 68ch; font-size: 0.9375rem; line-height: 1.7; color: #9ca1a9; } @media (max-width: 860px) { .ds-row-lead { grid-template-columns: minmax(0, 1fr); gap: 10px; } .ds-lead-meta { order: -1; padding-top: 0; } }"
+    },
+    {
+      "name": "Sticky Navigation",
+      "kind": "nav",
+      "refersTo": "topbar-cta",
+      "description": "60px sticky bar on a translucent, saturated, blurred ground. Borderless until the page scrolls past 8px, then a hairline appears.",
+      "html": "<header class=\"ds-topbar ds-is-stuck\"><div class=\"ds-topbar-inner\"><a class=\"ds-topbar-name\" href=\"#top\">Aditya Thagarthi Arun</a><nav class=\"ds-topbar-nav\"><a href=\"#experience\" class=\"ds-is-current\">Experience</a><a href=\"#projects\">Projects</a><a href=\"#contact\">Contact</a></nav><a class=\"ds-topbar-cta\" href=\"mailto:adityata98@gmail.com\">Get in touch</a></div></header>",
+      "css": ".ds-topbar { position: sticky; top: 0; z-index: 50; background: rgba(8,9,10,0.72); backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px); border-bottom: 1px solid transparent; transition: border-color 0.25s cubic-bezier(0.16,1,0.3,1), background 0.25s cubic-bezier(0.16,1,0.3,1); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; } .ds-topbar.ds-is-stuck { border-bottom-color: rgba(255,255,255,0.08); } .ds-topbar-inner { display: flex; align-items: center; gap: 32px; height: 60px; max-width: 920px; margin-inline: auto; padding-inline: 32px; } .ds-topbar-name { font-size: 0.875rem; font-weight: 550; color: #f7f8f8; text-decoration: none; letter-spacing: -0.014em; white-space: nowrap; } .ds-topbar-nav { display: flex; gap: 28px; margin-inline-start: auto; } .ds-topbar-nav a { font-size: 0.875rem; color: #8a8f98; text-decoration: none; transition: color 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-topbar-nav a:hover, .ds-topbar-nav a.ds-is-current { color: #f7f8f8; } .ds-topbar-cta { font-size: 0.875rem; font-weight: 500; color: #f7f8f8; text-decoration: none; padding: 6px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 7px; white-space: nowrap; transition: background 0.18s cubic-bezier(0.16,1,0.3,1), border-color 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-topbar-cta:hover { background: #131417; border-color: rgba(255,255,255,0.24); } .ds-topbar-cta:focus-visible { outline: 2px solid #6c8cff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Signal Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "The only chromatic element in the body. Indigo, with an arrow icon that nudges up-and-right on hover.",
+      "html": "<a class=\"ds-link\" href=\"#\">Read the report<svg class=\"ds-link-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M6.25 3.25h6.5v6.5M12.75 3.25 3.25 12.75\"/></svg></a>",
+      "css": ".ds-link { display: inline-flex; align-items: center; gap: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 0.9375rem; font-weight: 500; color: #6c8cff; text-decoration: none; transition: color 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-link:hover { color: #8ba4ff; text-decoration: underline; text-underline-offset: 3px; } .ds-link-icon { display: block; width: 13px; height: 13px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-link:hover .ds-link-icon { transform: translate(1.5px, -1.5px); } .ds-link:focus-visible { outline: 2px solid #6c8cff; outline-offset: 3px; border-radius: 3px; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "The system's only uppercase type: a small, wide-tracked muted label opening each section and the 'Also built' subhead.",
+      "html": "<h2 class=\"ds-section-title\">Selected projects</h2>",
+      "css": ".ds-section-title { margin: 0 0 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 0.75rem; font-weight: 550; text-transform: uppercase; letter-spacing: 0.09em; color: #8a8f98; }"
+    },
+    {
+      "name": "Mounted Figure",
+      "kind": "card",
+      "refersTo": "row-lead",
+      "description": "White technical drawings mounted on a padded raised sheet with a hairline-topped caption, so a light image reads as a document rather than a hole in the dark ground.",
+      "html": "<figure class=\"ds-figure\"><a href=\"#\"><img src=\"images/audio_beam.jpg\" alt=\"System block diagram\"></a><figcaption>System block diagram — MCU, codec, BLE module, and the battery path.</figcaption></figure>",
+      "css": ".ds-figure { margin: 24px 0 0; max-width: 520px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; background: #0e0f11; box-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -8px rgba(0,0,0,0.55); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; } .ds-figure a { display: block; } .ds-figure img { display: block; width: 100%; height: auto; padding: 14px; background: #fff; border-radius: 11px 11px 0 0; } .ds-figure figcaption { padding: 12px 14px; font-size: 0.8125rem; line-height: 1.5; color: #8a8f98; border-top: 1px solid rgba(255,255,255,0.08); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Instrument Panel",
+    "overview": "A near-black instrument face read at a glance: dark ground, one cool indigo signal light, hairline rules that separate without dividing, and dates set in tabular numerals so columns line up like a readout. Nothing on this surface is a metaphor. The register is the category standard — the conventional dark engineering portfolio — and the whole differentiation strategy is execution quality rather than concept. The craft bar is named and standing: Linear, Vercel, Raycast. Tight type scale, near-black with subtle elevation, strict grid, restrained micro-interaction.\n\nThe system is built from a single structural idea repeated everywhere: a 180px meta column and a fluid content column, separated by a 40px gutter, stacked under hairline rules. Experience rows, project rows, skill groups, and education rows are all the same object with different content. That repetition is not laziness; it is what makes the page skimmable in the sub-minute window a recruiter gives it, and what keeps the markup hand-editable — adding a job means copying a block.\n\nDensity is moderate-tight. Air comes from section padding (88px desktop, 56px on phones) rather than from generous line spacing; measures are capped (52–76ch) so no line ever runs the full 920px container. Depth is nearly absent by design: one raised surface exists on the entire page, and it is spent on the current role. Motion is nearly absent too: exactly one entrance animation, on the hero, and nothing else moves except in direct response to a pointer.",
+    "keyCharacteristics": [
+      "Near-black ground (#08090a) with two barely-lifted surface steps, not a gray scale",
+      "Exactly one chromatic accent, reserved for links and the interface's own signal surfaces",
+      "Hairlines at 8% white doing all the structural separation work",
+      "One repeated meta + content grid across every section",
+      "System font stack only; no webfont, no network font request",
+      "Tabular numerals on every date and meta value",
+      "One authored motion moment on the whole page",
+      "Complete and readable with JavaScript disabled; print is a maintained fallback"
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Indigo means \"this is a link or the browser is talking to you\" and nothing else. If a new element wants color for emphasis, it gets weight or a surface step instead.", "section": "colors" },
+      { "name": "The Two-Step Ground Rule", "body": "The dark ramp has exactly three resting values (ground, raised, hover). Do not introduce a fourth gray to solve a contrast problem; solve it with a hairline or with text-color role.", "section": "colors" },
+      { "name": "The No-Status-Color Rule", "body": "There is no green, amber, or red in this system, and no colored status dot. An accent status dot was built and removed because it implied an availability claim the site does not make.", "section": "colors" },
+      { "name": "The Tabular Date Rule", "body": "Every date, year range, and meta value in the left column is set in tabular numerals with letter-spacing reset to 0. Dates in adjacent rows must align digit-for-digit down the column.", "section": "typography" },
+      { "name": "The System Stack Rule", "body": "No webfont is loaded and none should be. The stack is the identity; a font request is a network dependency the site does not take.", "section": "typography" },
+      { "name": "The Two Weights Rule", "body": "The scale uses 400, 500, and 550 for text and 600 only at display sizes. 550 is the load-bearing \"this is a heading in body-sized type\" weight; do not substitute 600 or bold for it at row scale.", "section": "typography" },
+      { "name": "The One Grid Rule", "body": "Meta left at 180px, content right, 40px gutter — for experience, projects, skills, and education alike. A section that needs a different layout is a section that hasn't been thought through yet.", "section": "layout" },
+      { "name": "The Aligned Outdent Rule", "body": "A raised surface may outdent past the text measure only by cancelling its own interior padding with an equal negative inline margin, so its contents stay on the shared grid. Padding 28px / margin-inline -28px on desktop, 14px / -14px on phone.", "section": "layout" },
+      { "name": "The Hairline-First Rule", "body": "Reach for a 1px 8%-white rule before a surface change, and for a surface change before a shadow. If a boundary reads with a hairline, it is done.", "section": "elevation" },
+      { "name": "The One Card Rule", "body": "Exactly one element on the page carries the raised treatment (.row--lead): the current role, because it is the strongest evidence a recruiter needs. Promoting a second row to it destroys the hierarchy it exists to create.", "section": "elevation" },
+      { "name": "The One Entrance Rule", "body": "The page has exactly one entrance animation, and it is the hero settling on load. An earlier build had 17 scroll-triggered row reveals; they were deliberately removed. A reader scrolling fast must never wait on an animation to read a date.", "section": "components" },
+      { "name": "The Enhancement-Only Rule", "body": "JavaScript adds two things: the header hairline and the current-section state. With scripts disabled the page must remain complete, styled, and readable. Never move layout, content, or the entrance animation into JS.", "section": "components" }
+    ],
+    "dos": [
+      "Do put every new content block on the 180px meta + 1fr grid with the 40px gutter, under a hairline top border.",
+      "Do set every date and numeric meta value in tabular numerals with letter-spacing reset to 0.",
+      "Do reach for a hairline first, a surface step second, and the single ambient shadow last.",
+      "Do keep body measures capped (52–76ch); text should never run the container's full 920px.",
+      "Do theme the browser's own surfaces — selection, caret, scrollbar, focus ring — as part of any new work. They are load-bearing finish, not extras.",
+      "Do keep the system font stack; the identity is native type at a tight scale.",
+      "Do maintain the print stylesheet alongside any structural change: it inverts to black-on-white, drops the header, actions, and figures, flattens the lead card, and sets break-inside: avoid on rows.",
+      "Do curate hard. \"Selected projects\" stays short; weaker or older work belongs in the compact \"Also built\" list or nowhere.",
+      "Do stay buildless — hand-editable HTML, one stylesheet, one enhancement script, deployed by pushing to master."
+    ],
+    "donts": [
+      "Don't reintroduce a metaphor, concept world, or novelty interaction. The user chose the category standard over a dealt concept direction; the differentiation is finish, benchmarked to Linear / Vercel / Raycast.",
+      "Don't add per-section or scroll-triggered entrance animations. One entrance, on the hero, is the whole motion budget.",
+      "Don't promote a second row to the raised .row--lead treatment. Exactly one row carries it.",
+      "Don't outdent a surface without cancelling the outdent with equal interior padding — the meta column must stay on the shared grid.",
+      "Don't make or imply an availability claim: no \"open to work\" badge, no status dot, no colored availability signal. None is established.",
+      "Don't introduce a second accent hue, a status color palette, or a fourth resting gray.",
+      "Don't use the accent as a fill. Indigo is a signal color for links and browser surfaces only.",
+      "Don't load a webfont or an icon font. Icons are inline 16px SVG line drawings at 1.5 stroke, inheriting currentColor.",
+      "Don't ship a feature that requires JavaScript to be readable, and don't add a build step, package manager, or dependency.",
+      "Don't use hard offset shadows, glows, or colored shadows. There is one shadow token and it is ambient."
+    ]
+  }
+}

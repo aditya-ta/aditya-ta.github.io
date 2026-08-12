@@ -1,0 +1,7 @@
+# Local snapshot of the pre-redesign site. Kept out of git deliberately: the
+# original page is already recoverable from history (`git show ec9150f:index.html`),
+# and committing it would publish it at /backup/ on GitHub Pages.
+backup/
+
+# macOS
+.DS_Store
