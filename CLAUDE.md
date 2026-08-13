@@ -37,7 +37,8 @@ Read the direction contract in the HTML comment at the top of `<body>` before ch
 Load-bearing rules:
 
 - **One repeated grid.** Every section uses the same `.row` = `--meta-col` (180px) + content. Adding a section means reusing that grid, not inventing a layout.
-- **Near-black `#08090a`, one accent `#6c8cff`.** The accent is for links, focus rings, and selection only. Dark is a commitment, not a media query — there is no light theme.
+- **Near-black `#08090a`, one interactive accent `#6c8cff`.** The accent is for links, focus rings, and selection only, plus two atmospheric washes (the hero bloom and the lead card's top tint). Dark is a commitment, not a media query — there is no light theme.
+- **Three domain tints** (`--domain-silicon`, `--domain-systems`, `--domain-ml`) carry the range thesis and are confined to the Skills section. Do not spread them to experience or project rows; that was tried and rejected as noise. They never carry meaning alone — the group label always says the domain in words.
 - **One authored motion moment**: the hero's CSS `settle` stagger on load. Do not add scroll-reveal or per-section entrances; that was deliberately removed.
 - **Browser surfaces are themed** (selection, caret, scrollbar, focus-visible ring, tabular numerals on dates). Preserve this.
 - Curate hard. The "Selected projects" list is deliberately short; weaker or older work belongs in the "Also built" compact list. Adding entries to Selected projects dilutes it.

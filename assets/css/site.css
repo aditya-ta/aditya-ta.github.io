@@ -16,6 +16,13 @@
   --accent:          #6c8cff;
   --accent-bright:   #8ba4ff;
 
+  /* Three domain tints for the range claim. Same OKLCH lightness (0.745) and a
+     deliberately low chroma (0.048), so the Skills rows keep identical visual
+     weight and read as a shift in temperature rather than as colour. */
+  --domain-silicon:  #c4a58f;
+  --domain-systems:  #9faccc;
+  --domain-ml:       #92b6a3;
+
   --border:          rgba(255, 255, 255, 0.08);
   --border-strong:   rgba(255, 255, 255, 0.14);
 
@@ -179,8 +186,22 @@ html {
 /* --- hero ----------------------------------------------------------------- */
 
 .hero {
+  position: relative;
+  isolation: isolate;
   padding-block: 104px 88px;
   border-bottom: 1px solid var(--border);
+}
+
+/* A wide, very low-alpha bloom so the ground reads as deliberate rather than
+   merely dark. Atmosphere only: it carries no meaning and no state. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(760px 300px at 18% -12%,
+              rgba(108, 140, 255, 0.10), transparent 70%);
+  pointer-events: none;
 }
 
 .hero__portrait {
@@ -318,7 +339,8 @@ html {
    and body still land on the same grid as every row below it. */
 .row--lead {
   border-top: none;
-  background: var(--bg-raised);
+  background: linear-gradient(180deg, rgba(108, 140, 255, 0.05), transparent 60%),
+              var(--bg-raised);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 28px;
@@ -403,6 +425,20 @@ html {
   color: var(--text-muted);
 }
 .courses__label { color: var(--text-secondary); font-weight: 500; }
+
+/* --- domain tint -----------------------------------------------------------
+   Range across silicon, systems, and ML is the site's whole thesis. These tints
+   make it visible in the one place where that grouping is already the structure.
+   Deliberately not used on experience or project rows: inside a single job the
+   domain split is not the point, and multi-hue tag rows only read as noise. */
+
+.row--silicon .label   { color: var(--domain-silicon); }
+.row--systems .label   { color: var(--domain-systems); }
+.row--ml .label        { color: var(--domain-ml); }
+
+.row--silicon .tags li { color: var(--domain-silicon); }
+.row--systems .tags li { color: var(--domain-systems); }
+.row--ml .tags li      { color: var(--domain-ml); }
 
 /* --- tags ----------------------------------------------------------------- */
 

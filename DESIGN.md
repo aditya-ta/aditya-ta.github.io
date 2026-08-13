@@ -10,6 +10,9 @@ colors:
   text-muted: "#8a8f98"
   accent: "#6c8cff"
   accent-bright: "#8ba4ff"
+  domain-silicon: "#c4a58f"
+  domain-systems: "#9faccc"
+  domain-ml: "#92b6a3"
   hairline: "rgba(255, 255, 255, 0.08)"
   hairline-strong: "rgba(255, 255, 255, 0.14)"
   # Pure white on screen, used in exactly two places: the sheet mounted behind
@@ -172,7 +175,7 @@ Density is moderate-tight. Air comes from section padding (88px desktop, 56px on
 A near-black ground with a very short tonal climb and a single cool indigo signal; everything else is achromatic.
 
 ### Primary
-- **Signal Indigo** (`{colors.accent}`): The only chromatic color in the system. It carries links (`.link`, inline report links), the selection highlight at 28% alpha, the caret, the focus-visible ring, and the favicon glyph. It never fills a button, never tints a surface, and never appears as a decorative wash.
+- **Signal Indigo** (`{colors.accent}`): The only *interactive* color in the system. It carries links (`.link`, inline report links), the selection highlight at 28% alpha, the caret, the focus-visible ring, and the favicon glyph. It never fills a button, never tints a surface, and never appears as a decorative wash.
 - **Signal Indigo Bright** (`{colors.accent-bright}`): Hover state for indigo links only, paired with an underline at 3px offset. It exists solely so a link hover reads without introducing a second hue.
 
 ### Neutral
@@ -205,6 +208,22 @@ Paper is a second medium, not a variant of the screen, and it gets its own four 
 | body ground | `#08090a` | `#fff` |
 
 The lead card additionally drops its raised background, shadow, and negative inline margin so it prints as a hairline-ruled block rather than a dark box, and `.tags` lose their fill for the same reason.
+
+### The domain tints
+
+Three tints carry the site's actual thesis — range across silicon, systems, and machine learning. They sit at one OKLCH lightness (0.745) and a deliberately low chroma (0.048), so the Skills rows keep identical visual weight and the difference reads as temperature rather than as colour.
+
+- **Silicon** (`{colors.domain-silicon}`) — firmware and hardware.
+- **Systems** (`{colors.domain-systems}`) — OS and kernel.
+- **ML** (`{colors.domain-ml}`) — machine learning and data.
+
+**Where they are allowed:** the Skills section only, on the group label and its chips. Languages stays neutral so it does not compete.
+
+**Where they are banned:** experience rows, project rows, and any interactive element. Inside a single job the domain split is not the point, and multi-hue tag rows read as noise — this was built, reviewed against the alternative, and rejected. A domain tint must never be the only carrier of meaning; the group label always states the domain in words.
+
+### Atmosphere
+
+One radial indigo bloom behind the hero at 10% alpha, and a 5% indigo wash on the top of the lead card. This is atmosphere: it carries no meaning, no state, and no interaction, and it is the only place colour touches a surface. Verified not to erode text contrast — the worst composite still runs 5.55:1 for the muted step.
 
 ### Named Rules (structure)
 
